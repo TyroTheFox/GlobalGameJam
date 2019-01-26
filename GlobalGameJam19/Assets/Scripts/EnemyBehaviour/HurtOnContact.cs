@@ -6,6 +6,7 @@ public class HurtOnContact : MonoBehaviour {
 
     public int damage = 1;
     public float pushForce = 20.0f;
+    public Health my_health;
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -25,6 +26,19 @@ public class HurtOnContact : MonoBehaviour {
                 rb.velocity = new Vector2(0, 0);
                 rb.AddRelativeForce(targetVelocity, ForceMode2D.Impulse);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        Health health = col.transform.GetComponent<Health>();
+        if (health != null)
+        {
+            if (my_health.invulnerable)
+            {
+                my_health.deactivateInvul(1f);
+            }
+            health.TakeDamage(damage);
         }
     }
 
