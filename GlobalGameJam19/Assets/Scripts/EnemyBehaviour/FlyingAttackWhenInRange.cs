@@ -16,6 +16,8 @@ public class FlyingAttackWhenInRange : MonoBehaviour {
     {
         rigidBody.freezeRotation = true;
         rigidBody.gravityScale = 0;
+
+
     }
 
     void FixedUpdate()
