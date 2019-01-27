@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/EnemyTestScene.unity
+- path: H:/Documents/GitHub/GlobalGameJam/GlobalGameJam19/Assets/Scenes/SampleScene.unity
   isLoaded: 1
   isActive: 1

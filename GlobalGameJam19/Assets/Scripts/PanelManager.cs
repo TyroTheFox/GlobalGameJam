@@ -96,6 +96,6 @@ public class PanelManager : MonoBehaviour {
 
     public void StartLevel()
     {
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("SampleScene");
     }
 }
