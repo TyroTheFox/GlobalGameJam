@@ -7,9 +7,9 @@ public class GunControl : MonoBehaviour
     // Start is called before the first frame update
     public PolygonCollider2D poly;
     public float fireRate;
-    public float polyDelay;
+    private float polyDelay;
     private float fireDelay;
-
+    public ParticleSystem party;
 
 
 
@@ -32,6 +32,7 @@ public class GunControl : MonoBehaviour
             poly.enabled = true;
             polyDelay = 0.15f;
             fireDelay = fireRate;
+            party.Emit(100);
             Debug.Log("fire");
 
         }
@@ -47,12 +48,14 @@ public class GunControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-       // if(col.transform.GetComponent<>) check if you can see tag (enemy)
-        Debug.Log("hit");
-        Health health = col.transform.GetComponent<Health>();
-        if (health != null)
+        if (col.gameObject.tag == "Enemy")
         {
-            health.TakeDamage(1);
+            Debug.Log("hit");
+            Health health = col.transform.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(1);
+            }
         }
     }
 }

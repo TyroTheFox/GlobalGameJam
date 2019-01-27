@@ -29,6 +29,12 @@ public class PlayerController : MonoBehaviour
     //Variable to hold double jump
     private bool canDoubleJump;
     private bool canGroundPound;
+    private bool isGroundPounding;
+
+    public float dashPower;
+    private float dashDelay;
+    public float dashDelayTime;
+    private bool isDashing;
 
     //Vector to hold player position
     private Vector2 playerVelocity;
@@ -41,6 +47,8 @@ public class PlayerController : MonoBehaviour
         jumpDelay = jumpDelaytime;
         rd = GetComponent<Rigidbody2D>();
         isLookingRight = true;
+        isGroundPounding = false;
+        isDashing = false;
     }
 
     void FixedUpdate()
@@ -81,6 +89,7 @@ public class PlayerController : MonoBehaviour
             {
                 tgroundPound.GroundSlam();
                 tgroundSlam.Slamming();
+                isGroundPounding = false;
             }
 
         }
@@ -102,22 +111,50 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            var move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-            transform.position += move * speed * Time.deltaTime;
-            if (Input.GetAxis("Horizontal") > 0 && isLookingRight == false)
+            if (!isGroundPounding)
             {
-                isLookingRight = true;
-                rotateModel();
+                var move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+                transform.position += move * speed * Time.deltaTime;
+
+                if (Input.GetAxis("Horizontal") > 0 && isLookingRight == false)
+                {
+                    isLookingRight = true;
+                    rotateModel();
+                }
+                else if (Input.GetAxis("Horizontal") < 0 && isLookingRight == true)
+                {
+                    isLookingRight = false;
+                    rotateModel();
+                }
+
+                if (dashDelay > 0)
+                {
+                    dashDelay -= Time.deltaTime;
+                    if (isDashing && dashDelay <= dashDelayTime - 0.1)
+                    {
+                        rd.velocity = new Vector2(0, 0);
+                        isDashing = false;
+                    }
+                }
+                else if (Input.GetButtonDown("Fire3"))
+                {
+                    int dir;
+                    if (isLookingRight) { dir = 1; }
+                    else { dir = -1; }
+
+                    rd.AddForce(new Vector2(dir * dashPower, 0));
+                    dashDelay = dashDelayTime;
+                    isDashing = true;
+                    
+                }
             }
-            else if (Input.GetAxis("Horizontal") < 0 && isLookingRight == true)
-            {
-                isLookingRight = false;
-                rotateModel();
-            }
+
+
 
 
             if (Input.GetButtonDown("Jump") && !isGrounded && !canDoubleJump && canGroundPound)
             {
+                isGroundPounding = true;
                 poundDelay = poundDelayTime;
                 canGroundPound = false;
 
@@ -163,6 +200,11 @@ public class PlayerController : MonoBehaviour
     private void rotateModel()
     {
         GetComponent<Transform>().localRotation *= Quaternion.Euler(0, 180, 0);
+    }
+
+    public void stopSlamming()
+    {
+        isGroundPounding = false;
     }
 }
 

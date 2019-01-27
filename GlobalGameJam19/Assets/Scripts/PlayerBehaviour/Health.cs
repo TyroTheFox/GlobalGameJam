@@ -38,6 +38,10 @@ public class Health : MonoBehaviour {
         {
             //Debug.Log("DEAD");
             gameObject.SetActive(false);
+            if (tag == "Player")
+            {
+                Application.LoadLevel(Application.loadedLevel); //might not use
+            }
         }
     }
 
@@ -46,7 +50,10 @@ public class Health : MonoBehaviour {
         if (!invulnerable)
         {
             HP -= damage;
+            invalDelay = 0.5f;
+            invulnerable = true;
         }
+
     }
 
     public void activateInvul()
@@ -62,5 +69,10 @@ public class Health : MonoBehaviour {
     public void deactivateInvul(float delay)
     {
         invalDelay = delay;
+    }
+
+    public void pickupShield()
+    {
+        HP += 2;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GroundPound : MonoBehaviour
 {
     BoxCollider2D cd;
+    public GameObject player;
 
 
     // Start is called before the first frame update
@@ -35,4 +36,22 @@ public class GroundPound : MonoBehaviour
         return cd.enabled;
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        Health health = col.transform.GetComponent<Health>();
+        if (health != null)
+        {
+           
+
+             Debug.Log("You made them oof");
+             player.GetComponent<Health>().deactivateInvul(1f);
+                
+             health.TakeDamage(1);
+            
+        }
+
+        player.GetComponent<PlayerController>().stopSlamming();
+
+
+    }
 }

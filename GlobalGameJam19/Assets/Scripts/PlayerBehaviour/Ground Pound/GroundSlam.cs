@@ -29,7 +29,6 @@ public class GroundSlam : MonoBehaviour
                 poundDelay = 0;
                 cd.enabled = false;
                 thealth.deactivateInvul();
-                Debug.Log("dcfxvtgyhui");
                 //CamControl
             }
 
@@ -41,5 +40,16 @@ public class GroundSlam : MonoBehaviour
         cd.enabled = true;
         poundDelay = poundDelayTime;
         //cam.ShakeCam();
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        Health health = col.transform.GetComponent<Health>();
+        if (health != null)
+        {
+            health.TakeDamage(1);
+            
+        }
+
     }
 }
