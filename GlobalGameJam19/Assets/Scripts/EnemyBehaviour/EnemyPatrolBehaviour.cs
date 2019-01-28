@@ -34,12 +34,18 @@ public class EnemyPatrolBehaviour : MonoBehaviour {
     {
         if (Mathf.Abs(Vector2.Distance(currentNode.position, transform.position)) <= tollerance)
         {
-            if(i >= patrolNodes.Length)
+            if (patrolNodes.Length > 0)
             {
-                i = 0;
+                if (i >= patrolNodes.Length)
+                {
+                    i = 0;
+                }
+                else
+                {
+                    currentNode = patrolNodes[i];
+                    i++;
+                }
             }
-            else { i++; }
-            currentNode = patrolNodes[i];
         }
         if (grounded)
         {

@@ -9,11 +9,13 @@ public class Health : MonoBehaviour {
     private float invalDelay;
     public int MaxHP = 3;
     public int HP;
+    public Animator animator;
 
 	// Use this for initialization
 	void Start () {
         HP = MaxHP;
         invalDelay = 0;
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -32,6 +34,14 @@ public class Health : MonoBehaviour {
         if(HP <= 0)
         {
             dead = true;
+            if(animator != null)
+            animator.SetBool("Dead", dead);
+        }
+        else
+        {
+            dead = false;
+            if(animator != null)
+                animator.SetBool("Dead", dead);
         }
 
         if (dead)
@@ -52,6 +62,8 @@ public class Health : MonoBehaviour {
             HP -= damage;
             invalDelay = 0.5f;
             invulnerable = true;
+            if(animator != null)
+            animator.SetTrigger("BigHit");
         }
 
     }

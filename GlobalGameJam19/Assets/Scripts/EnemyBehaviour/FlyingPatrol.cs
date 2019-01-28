@@ -27,14 +27,19 @@ public class FlyingPatrol : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if(patrolNodes.Length <= 0){return;}
         if (Mathf.Abs(Vector2.Distance(currentNode.position, transform.position)) <= tollerance)
         {
+            
             if (i >= patrolNodes.Length)
             {
                 i = 0;
             }
-            else { i++; }
-            currentNode = patrolNodes[i];
+            else
+            {
+                currentNode = patrolNodes[i];
+                i++;
+            }
         }
             // Calculate how fast we should be moving
             Vector2 targetVelocity = (currentNode.transform.position - transform.position).normalized;

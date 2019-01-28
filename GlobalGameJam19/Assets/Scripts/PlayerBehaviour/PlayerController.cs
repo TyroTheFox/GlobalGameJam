@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     //Vector to hold player position
     private Vector2 playerVelocity;
-
+    public Animator animator;
 
 
     // Start is called before the first frame update
@@ -66,9 +66,31 @@ public class PlayerController : MonoBehaviour
                 jumpDelay = 0;
             }
         }
-        else
+        animator.SetBool("Grounded", isGrounded);
+        if (isGrounded)
+        {
+            animator.SetBool("GroundPound", false);
+            animator.SetBool("Jumping", false);
+         }
+
+        /*else
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, radiusToGround, groundItems);
+        }*/
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.transform.tag == "Level")
+        {
+            isGrounded = true;
+        }
+    }
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.transform.tag == "Level")
+        {
+            isGrounded = false;
         }
     }
 
@@ -114,7 +136,9 @@ public class PlayerController : MonoBehaviour
             if (!isGroundPounding)
             {
                 var move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-                transform.position += move * speed * Time.deltaTime;
+                Vector3 deltaSpeed = move * speed * Time.deltaTime;
+                transform.position += deltaSpeed;
+                animator.SetFloat("Move", Mathf.Abs(move.x));
 
                 if (Input.GetAxis("Horizontal") > 0 && isLookingRight == false)
                 {
@@ -126,7 +150,7 @@ public class PlayerController : MonoBehaviour
                     isLookingRight = false;
                     rotateModel();
                 }
-
+                
                 if (dashDelay > 0)
                 {
                     dashDelay -= Time.deltaTime;
@@ -138,6 +162,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (Input.GetButtonDown("Fire3"))
                 {
+                    animator.SetTrigger("Shoot");
                     int dir;
                     if (isLookingRight) { dir = 1; }
                     else { dir = -1; }
@@ -154,6 +179,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && !isGrounded && !canDoubleJump && canGroundPound)
             {
+                animator.SetBool("GroundPound", true);
                 isGroundPounding = true;
                 poundDelay = poundDelayTime;
                 canGroundPound = false;
@@ -163,6 +189,7 @@ public class PlayerController : MonoBehaviour
             //Get the jump axis and have the character jump
             if (Input.GetButtonDown("Jump") && !isGrounded && canDoubleJump)
             {
+                animator.SetTrigger("ExtraJump");
                 CharacterJump();
                 //Debug.Log("jump2");
                 canDoubleJump = false;
@@ -172,6 +199,7 @@ public class PlayerController : MonoBehaviour
             //Get the jump axis and have the character jump - using get button instead of axis as we need specific key down actions
             if (Input.GetButtonDown("Jump") && isGrounded)
             {
+                animator.SetBool("Jumping", true);
                 jumpDelay = jumpDelaytime;
                 CharacterJump();
                 isGrounded = false;

@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
 {
     public LayerMask groundItems;
     public float enemySpeed = 1f;
-    private RigidBody2D enemyBody;
+    private Rigidbody2D enemyBody;
     private Transform enemyTransform;
     private float enemyWidth;
     private Vector2 enemyVel;
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         enemyTransform = this.transform;
-        enemyBody = GetComponent<RigidBody2D>();
+        enemyBody = GetComponent<Rigidbody2D>();
 
         enemyWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
     }

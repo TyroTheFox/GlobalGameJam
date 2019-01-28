@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8878040954642653523}
   m_Layer: 0
   m_Name: AttackWhenInRange
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   speed: 10
   gravity: 10
   maxVelocityChange: 10
-  canJump: 1
+  canJump: 0
   jumpHeight: 2
 --- !u!114 &2450496450048002050
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  pushForce: 5
+  pushForce: 6000
   my_health: {fileID: 0}
   stopSlam: 0
   player: {fileID: 0}

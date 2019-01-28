@@ -16,7 +16,8 @@ public class BossControl : MonoBehaviour
 
     public float attackTimer;
     public float attackDelay;
-
+    public Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,8 @@ public class BossControl : MonoBehaviour
     {
         if (!lockAttacking)
         {
+            if(animator != null)
+                animator.SetTrigger("SlamPunch");
             if (player.position.x - GetComponent<Transform>().position.x > 0.2 && isLookingRight == false)
             {
                 isLookingRight = true;

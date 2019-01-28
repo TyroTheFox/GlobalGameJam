@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ModelTestScene.unity
+- path: Assets/Scenes/LavaLevel.unity
   isLoaded: 1
   isActive: 1
