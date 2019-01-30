@@ -133,6 +133,11 @@ MonoBehaviour:
   invulnerable: 0
   MaxHP: 1
   HP: 0
+  animator: {fileID: 0}
+  healthBar: {fileID: 0}
+  source: {fileID: 0}
+  deathNoise: {fileID: 0}
+  hurtNoise: {fileID: 0}
 --- !u!1 &7445693553365860344
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +180,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: coallowpoly
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: daf40ead500783d4bb23b9e1235cb00e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8080a91c797d3af44af130b477b05b57, type: 2}
+    - target: {fileID: 2300002, guid: daf40ead500783d4bb23b9e1235cb00e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 71e3f1c9a8769c64a998375d453b2db4, type: 2}
     - target: {fileID: 400002, guid: daf40ead500783d4bb23b9e1235cb00e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -219,14 +232,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: daf40ead500783d4bb23b9e1235cb00e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8080a91c797d3af44af130b477b05b57, type: 2}
-    - target: {fileID: 2300002, guid: daf40ead500783d4bb23b9e1235cb00e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 71e3f1c9a8769c64a998375d453b2db4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: daf40ead500783d4bb23b9e1235cb00e, type: 3}
 --- !u!4 &5811908013891493154 stripped

@@ -10,7 +10,12 @@ public class Health : MonoBehaviour {
     public int MaxHP = 3;
     public int HP;
     public Animator animator;
+    
+    public SimpleHealthBar healthBar;
 
+    public AudioSource source;
+    public AudioClip deathNoise;
+    public AudioClip hurtNoise;
 	// Use this for initialization
 	void Start () {
         HP = MaxHP;
@@ -20,6 +25,11 @@ public class Health : MonoBehaviour {
 
     void Update()
     {
+        if (healthBar != null)
+        {
+            healthBar.UpdateBar(HP, MaxHP);
+        }
+
         if (invalDelay > 0)
         {
             invalDelay -= Time.deltaTime;
@@ -33,6 +43,10 @@ public class Health : MonoBehaviour {
 
         if(HP <= 0)
         {
+            if (source != null)
+            {
+                source.PlayOneShot(deathNoise);
+            } 
             dead = true;
             if(animator != null)
             animator.SetBool("Dead", dead);
@@ -48,7 +62,7 @@ public class Health : MonoBehaviour {
         {
             //Debug.Log("DEAD");
             gameObject.SetActive(false);
-            if (tag == "Player")
+            if (tag == "Player" && !source.isPlaying)
             {
                 Application.LoadLevel(Application.loadedLevel); //might not use
             }
@@ -59,6 +73,10 @@ public class Health : MonoBehaviour {
     {
         if (!invulnerable)
         {
+            if (source != null)
+            {
+                source.PlayOneShot(hurtNoise);
+            } 
             HP -= damage;
             invalDelay = 0.5f;
             invulnerable = true;

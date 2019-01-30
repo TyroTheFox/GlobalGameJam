@@ -17,12 +17,16 @@ public class BossControl : MonoBehaviour
     public float attackTimer;
     public float attackDelay;
     public Animator animator;
+
+    public AudioClip attackSound;
+    private AudioSource source;
     
     // Start is called before the first frame update
     void Start()
     {
         isLookingRight = false;
         lockAttacking = false;
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +34,7 @@ public class BossControl : MonoBehaviour
     {
         if (!lockAttacking)
         {
+            source.PlayOneShot(attackSound);
             if(animator != null)
                 animator.SetTrigger("SlamPunch");
             if (player.position.x - GetComponent<Transform>().position.x > 0.2 && isLookingRight == false)

@@ -1,8 +1,10 @@
 Win64
 PlayerPath?
-E:/Software Projects/Unity/Built Games/OTTO/GGJ19.exe
+E:/Software Projects/Unity/Built Games/OTTO/O.A.S.I.S.exe
 SceneListBegin?
+Assets/Scenes/MainMenu.unity
 Assets/Scenes/LavaLevel.unity
+Assets/Scenes/Ending.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -21,7 +23,9 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 7d3d76a6da5003549a446ad06b17f43d Assembly-CSharp.dll:Rewired.UI.ControlMapper.ButtonInfo
 97b91af1e339ab9fda8937683f620b4d Assembly-CSharp.dll:Rewired.Data.UserDataStore_PlayerPrefs
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
+7e6f3cec810b51366c6e857ffaf3cdbc Assembly-CSharp.dll:.PanelManager
 c799e9e99e38145dfe46d204e6b68fab Assembly-CSharp.dll:.WalkForwards
+51f8d470cac09a8e32d2d547963d8efc Assembly-CSharp.dll:.ResizePanel
 4518a202795b8757c346ac006db0efaf Assembly-CSharp.dll:Rewired.UI.ControlMapper.CustomToggle
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Rewired.Demos.FallbackJoystickIdentificationDemo
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.Editor.dll:UnityEngine.Advertisements.Editor.Placeholder
@@ -96,6 +100,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+3fbb1a5ffeb0d2dc3502a3dae62a7533 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingBehaviour
 b16d8f7090aeb5684c2c0befa5b2e454 Assembly-CSharp.dll:.HurtOnContact
 31c370d91bd50f1ea809a1c55889b413 Assembly-CSharp.dll:Rewired.Demos.GamepadTemplateUI.GamepadTemplateUI
 f22697925b5191a127c1ebe3be6e4841 Assembly-CSharp.dll:Rewired.Demos.GamepadTemplateUI.ControllerUIElement
@@ -160,18 +165,22 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 32f2277066446283149ebb38fece4760 Assembly-CSharp.dll:.AttackBox
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ActiveStateToggler
+0b4f075303d80a207a472bf467c5170e Assembly-CSharp.dll:.PlayerHealth
 5e51095ff05a7324e79715b257000df2 Assembly-CSharp.dll:Rewired.UI.ControlMapper.InputBehaviorWindow
 99b2ac3ad839053d5fc2be660cf1e3e4 Assembly-CSharp.dll:Rewired.Demos.CustomControllerDemo
 7249d16524acf300f9e0bb8467225a37 Assembly-CSharp.dll:Rewired.UI.ControlMapper.ScrollbarVisibilityHelper
 f3ccae0544a90daee33127cef47a75f3 Assembly-CSharp.dll:Rewired.Demos.PressStartToJoinExample_Assigner
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
+a72b59fc029116362b3317d54b5ec7e0 Assembly-CSharp.dll:.TiltWindow
 764cdcbcd15822c67626690f1ca001b8 Assembly-CSharp.dll:Rewired.UI.ControlMapper.UIImageHelper
 51b22fdd1e326e72bcaa63aafa7e1f46 Assembly-CSharp.dll:Rewired.UI.ControlMapper.UIControlSet
+25144c884f8dae2117f1bace67e6add9 Assembly-CSharp.dll:.GameControl
 83e769eee07fc231384c812eedbb8224 Assembly-CSharp.dll:.GroundPound
 947174d4110f440953af44ae1259e512 Assembly-CSharp.dll:Rewired.UI.ControlMapper.ControlMapper
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
-bc232b39431ec255a6799ed2fe781efb Assembly-CSharp.dll:.Health
+eb678ad5bc3e3f716e0834de0c0fd440 Assembly-CSharp.dll:.Health
 e549a4d30ba47eb60f1ee3b8e3848a0e Assembly-CSharp.dll:Rewired.UI.ControlMapper.Window
 7faedb28d56909b34839668ad328d34f Assembly-CSharp.dll:.GroundSlam
 4bc4346a71a8df53a6b106f68ef3a190 Assembly-CSharp.dll:Rewired.UI.ControlMapper.CanvasScalerExt
@@ -180,20 +189,28 @@ e549a4d30ba47eb60f1ee3b8e3848a0e Assembly-CSharp.dll:Rewired.UI.ControlMapper.Wi
 42101ff78a9f4cb3111d30dd0cb00cf8 Assembly-CSharp.dll:Rewired.Demos.PressStartToJoinExample_GamePlayer
 7501f39068b718815f6608472992504a Assembly-CSharp.dll:.Shield
 7550dfec3f280c706401d761826330c8 Assembly-CSharp.dll:Rewired.Demos.PlayerMouseSpriteExample
+1f97185a26fcafef8dca130f573f62d7 Assembly-CSharp.dll:.HealthBar
 c71da9c7218d91e21c3edb9750b2eeb5 Assembly-CSharp.dll:Rewired.Demos.PressAnyButtonToJoinExample_GamePlayer
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
-e393034d6a31429b07d61e64d52b1142 Assembly-CSharp.dll:.BossControl
+d875bbc19e3e13982e90c5a66502572b Assembly-CSharp.dll:.BossControl
 346052bf53af7f628eafec0266c4ece2 Assembly-CSharp.dll:.LevelControl
-dcd2e9ad7d010e4636d8c6f2d6477912 Assembly-CSharp.dll:.PlayerController
+45b8bf8a41b5d79b24a46a47b86d23c5 Assembly-CSharp.dll:.PlayerController
+7c7137be593ffe5509a041f2255ced19 Assembly-CSharp.dll:.EnemyAttack
 d13c19b3b5c7628159db253c20148100 Assembly-CSharp.dll:Rewired.UI.ControlMapper.ThemeSettings
+699582968bf572a4f5f4654f266dca73 Assembly-CSharp.dll:.DropMe
 411cc9dbd0cf75592006d945c285e2a0 Assembly-CSharp.dll:Rewired.Demos.ControlMapperDemoMessage
+ef55cd4267a0b0fe60090f210f4fc5dc Assembly-CSharp.dll:.Enemy
 1496152f72b9e0aaa2b958bea4a9a5da Assembly-CSharp.dll:.FlyingAttackWhenInRange
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 93d8bde633856330f5604727af7e81c1 Assembly-CSharp.dll:.AttackWhenInRange
+0568889868f6fb744b2ecba530349fde Assembly-CSharp.dll:.ExampleWheelController
+c8c5e65e9fb858572516474d6e2102bc Assembly-CSharp.dll:.PauseMenu
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ShowSliderValue
 4ce15e99c635d2567873d27549d1f16f Assembly-CSharp.dll:Rewired.Demos.PlayerPointerEventHandlerExample
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 0436459776203c153febba549ce423b9 Assembly-CSharp.dll:Rewired.UI.ControlMapper.UISliderControl
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ScrollingObject
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Rewired.Demos.ControlRemappingDemo1
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -209,6 +226,9 @@ e0ee4b3d4e27318934cc940a969d3d96 UnityEngine.Networking.dll:UnityEngine.Networki
 ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.DragPanel
+058a04814f466c41683f5006123c79b4 Assembly-CSharp.dll:.FollowCamera
+369421eaa26a31b7617fb067c6e27c2e Assembly-CSharp.dll:.DragMe
 b8a40408532ad28ad1a49a7a9239a210 Assembly-CSharp.dll:Rewired.UI.ControlMapper.UIGroup
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
 aa82b3ce4c0c9b227036c0337315c5d3 Unity.TextMeshPro.dll:TMPro.TMP_FontAsset
@@ -235,8 +255,11 @@ d3cb6fde73b780c8bc1e2e31a9cc8b7a Assembly-CSharp.dll:.FlyForwards
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 88e656a51fa135d992b6adf0dc0c7685 Assembly-CSharp.dll:Rewired.Demos.TouchJoystickExample
+bd89c02c54734bc10c39b2afb3d65590 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 477c64d8079864f78c1cf204c1de45a7 Assembly-CSharp.dll:Rewired.InputManager
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+2fbea720a20f1ace656fd739410af961 Assembly-CSharp.dll:Gamekit2D.BackgroundMusicPlayer
+9161902610895daf59411d089ccf500c Assembly-CSharp.dll:.MenuScript
 42b5bcc5f506c879361fd523bf372ead Assembly-CSharp.dll:Rewired.UI.ControlMapper.ThemedElement
 bb8814741d7085ebb3d19a1a11769619 Assembly-CSharp.dll:Rewired.Demos.Bullet
 871f9e63267e219258cbf49b6f5035c8 Assembly-CSharp.dll:Rewired.Demos.DualShock4SpecialFeaturesExample
@@ -244,6 +267,7 @@ bb8814741d7085ebb3d19a1a11769619 Assembly-CSharp.dll:Rewired.Demos.Bullet
 c71da9c7218d91e21c3edb9750b2eeb5 Assembly-CSharp.dll:Rewired.Demos.EightPlayersExample_Player
 cbd887089aacb72dfdb0834f0b9e4d1b Assembly-CSharp.dll:Rewired.Demos.TouchButtonExample
 d21b4e6b141f5c1692df22ac001a2d20 Assembly-CSharp.dll:Rewired.Demos.GamepadTemplateUI.ControllerUIEffect
+09fe53f599e1b043b2ab790cced57532 Assembly-CSharp.dll:.ScrollDetailTexture
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 02ad6079f099134de1faeb62e78c7d91 Assembly-CSharp.dll:Rewired.UI.ControlMapper.CustomButton
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Rewired.Demos.PressAnyButtonToJoinExample_Assigner
@@ -253,21 +277,21 @@ c500cf53a648a58743febea88ea54fa8 Assembly-CSharp.dll:Rewired.Integration.UnityUI
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ApplicationManager
 8a719b8bcdf1db6437820c0340238b7a Assembly-CSharp.dll:Rewired.Demos.CustomControllerDemo_Player
-d851dc120fd9dba9671b2a0967f2bb43 Assembly-CSharp.dll:.GunControl
+de20ae515a1bc5c0a8e6dbf78417c016 Assembly-CSharp.dll:.GunControl
 d2c17f14edfde4cc5c8c2818799520b4 Assembly-CSharp.dll:.CamControl
 0cba1ef412cfdf07c99b74278b6a104a Assembly-CSharp.dll:.EnemyPatrolBehaviour
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ChangeColor
 2e6f92767b5626887fe742cc15da58b8 Assembly-CSharp.dll:Rewired.UI.ControlMapper.CanvasScalerFitter
-0b4f075303d80a207a472bf467c5170e Assembly-CSharp.dll:.PlayerHealth
-25144c884f8dae2117f1bace67e6add9 Assembly-CSharp.dll:.GameControl
-1f97185a26fcafef8dca130f573f62d7 Assembly-CSharp.dll:.HealthBar
-7c7137be593ffe5509a041f2255ced19 Assembly-CSharp.dll:.EnemyAttack
-ef55cd4267a0b0fe60090f210f4fc5dc Assembly-CSharp.dll:.Enemy
-c8c5e65e9fb858572516474d6e2102bc Assembly-CSharp.dll:.PauseMenu
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ScrollingObject
-2fbea720a20f1ace656fd739410af961 Assembly-CSharp.dll:Gamekit2D.BackgroundMusicPlayer
-9161902610895daf59411d089ccf500c Assembly-CSharp.dll:.MenuScript
-058a04814f466c41683f5006123c79b4 Assembly-CSharp.dll:.FollowCamera
-3fbb1a5ffeb0d2dc3502a3dae62a7533 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingBehaviour
-0568889868f6fb744b2ecba530349fde Assembly-CSharp.dll:.ExampleWheelController
-bd89c02c54734bc10c39b2afb3d65590 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
+ae01b4bf40137ed5ffd02a9822f73747 Assembly-CSharp.dll:.MainMenuScript
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Killplane
+ba51e535711492a5cd0c12886380b245 Assembly-CSharp.dll:.LevelManager
+47ae48abce9af98a7ffa8e1b02193ab7 Assembly-CSharp.dll:.SimpleHealthBar
+390088f0181e3bc83c883614bf07d674 Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.AsteroidController
+f406ebcbf42de1bd447d141184730003 Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.PlayerController
+3f6497af7f33bfe55504c5c173f9c404 Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.HealthPickupController
+062a1574b487513bfe53b326958cdc43 Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.PlayerHealth
+39abe8ae2d89af2dc09cf3c0bee60d97 Assembly-CSharp.dll:SimpleHealthBar_SpaceshipExample.GameManager
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EndScene
+f7e25bd1e94b94d7efe13c2d01bdd2c4 Assembly-CSharp.dll:.ActivationPoint

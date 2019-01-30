@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class GunControl : MonoBehaviour
 {
@@ -11,13 +12,17 @@ public class GunControl : MonoBehaviour
     private float fireDelay;
     public ParticleSystem party;
 
-
+    private Player player;
+    
+    public AudioSource source;
+    public AudioClip shootSound;
 
     void Start()
     {
         fireDelay = fireRate;
         poly.enabled = false;
         polyDelay = 0;
+        player = ReInput.players.GetSystemPlayer();
     }
 
     // Update is called once per frame
@@ -27,13 +32,14 @@ public class GunControl : MonoBehaviour
         {
             fireDelay -= Time.deltaTime;
         }
-        else if (Input.GetAxis("Fire1") == 1)
+        else if (player.GetButton("Attack"))
         {
             poly.enabled = true;
             polyDelay = 0.15f;
             fireDelay = fireRate;
             party.Emit(100);
             Debug.Log("fire");
+            source.PlayOneShot(shootSound);
 
         }
         if (polyDelay > 0)
